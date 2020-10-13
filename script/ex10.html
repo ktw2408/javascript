@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   <script> //하나의 원소를 배열에 추가
+       var li = ['a', 'b', 'c', 'd', 'e'];
+       li.push('f');
+       alert(li);
+   </script>
+    <script> //다수의 원소를 배열에 추가
+        var li = ['a', 'b', 'c', 'd', 'e'];
+        li = li.concat(['f', 'g']);
+        alert(li);
+    </script>
+   <script> //인자로 전달한 값을 첫번째 위치에 저장
+       var li = ['a', 'b', 'c', 'd', 'e'];
+       li.unshift('z');
+       alert(li);
+   </script>
+   <script> //인자 전달값을 두번째 인자에 해당하는 원소의 숫자만큼 배열로 제거 후 리턴
+       var li = ['a', 'b', 'c', 'd', 'e'];
+       li.splice(2, 0, 'B'); //2: 두번째 인자 c, 0: 배열 
+       alert(li);
+   </script>
+</body>
+</html>
