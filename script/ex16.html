@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+   <script>
+       function outter() {
+           function inner() { //outter의 내부에 정의된 함수
+               var title = 'coding everybody';
+               alert(title);
+           }
+           inner();
+       }
+       outter();
+   </script>
+   <script>
+       function outter() {
+           var title = 'coding everybody';
+           function inner() { //내부함수 inner
+               alert(title); //title 호출
+           }
+           inner(); //outter()의 지역변수에 접근할 수 있음을 보여줌
+       }
+       outter();
+   </script>
+   <script>
+       function outter() {
+           var title = 'coding everybody';
+           return function () {
+               alert(title);
+           }
+       }
+       inner = outter(); //outter를 호출
+       inner(); //결과가 담겨짐
+   </script>
+    <script>
+        function factory_movie(title) { //factory_movie의 지역변수 title은 2행에서 정의된 객체의 메소드에서만 접근
+            return {
+                get_title: function () {
+                    return title;
+                },
+                set_title: function (_title) {
+                    title = _title
+                }
+            }
+        }
+        ghost = factory_movie('Ghost in the shell');
+        matrix = factory_movie('Matrix');
+
+        alert(ghost.get_title());
+        alert(matrix.get_title());
+
+        ghost.set_title('공각기동대'); //외부함수 factory_movie의 지역변수인 title 값을 변경
+
+        alert(ghost.get_title()); //set_titlerhk get_title함수가 title의 값을 공유하고 있다.
+        alert(matrix.get_title());
+    </script>
+</body>
+</html>

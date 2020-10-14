@@ -16,5 +16,30 @@
     <script> //모듈이 있는 경우
         alert(welcome());
     </script>
+    <script> //전역변수
+        var vscope = 'global';
+        function fscope() {
+            alert(vscope);
+        }
+        fscope();
+    </script>
+    <script> //지역변수
+        var vscope = 'global';
+        function fscope() {
+            var vscope = 'local';
+            alert('함수안 ' + vscope);
+        }
+        fscope();
+        alert('함수밖 ' + vscope);
+    </script>
+    <script>
+        var vscope = 'global';
+        function fscope() {
+            vscope = 'local';
+            alert('함수안' + vscope);
+        }
+        fscope();
+        alert('함수밖' + vscope);
+    </script>
 </body>
 </html>
